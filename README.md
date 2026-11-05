@@ -1,31 +1,55 @@
 # Image Processing Assignments
 
-Two assignments for the Image Processing course. **Each notebook includes source code and saved execution outputs**, so the results can be viewed directly on GitHub without running Colab.
+This repository contains two assignments completed for the Image Processing course.
 
-| Assignment | Contents | Code and results |
-|---|---|---|
-| [01 — Morphological Operations](01_Morphological_Operations/) | Dilation, Erosion, Opening, Closing | [Executed notebook](01_Morphological_Operations/morphological_operations.ipynb) · [Original assignment code](01_Morphological_Operations/original_morphology.py) |
-| [02 — CIFAR-10 KNN](02_CIFAR10_KNN/) | K values, L1/L2, 5-fold CV, metrics | [Original executed Colab notebook](02_CIFAR10_KNN/CIFAR10_KNN.ipynb) |
+Each assignment includes Python source code and saved execution results.
 
-## Result previews
+## 1. Morphological Image Processing
 
-### Morphological operations
+**[View Notebook](01_Morphological_Operations/morphological_operations.ipynb)**
 
-![Dilation, Erosion, Opening and Closing](01_Morphological_Operations/results/morphology_comparison.png)
+Implementation of four morphological operations:
 
-The morphology preview was **re-executed using a generated example image** because the originally manually uploaded image and its saved output were not available. The original Colab-exported source code is preserved in the same folder.
+- Dilation
+- Erosion
+- Opening
+- Closing
 
-### KNN (CIFAR-10)
+The experiment compares the results using four structuring elements: Vertical, Horizontal, Square, and Diamond.
 
-![KNN accuracy across K values and distance metrics](02_CIFAR10_KNN/results/cv_accuracy.png)
+The notebook includes image preprocessing, morphological operations, and visualization of the results.
 
-For the 5-fold cross-validation, **L1 (Manhattan), K=1** had the highest mean accuracy (**37.08%**). Its final test accuracy was **38.59%** with the full CIFAR-10 training and test sets. Details and additional plots are in the [KNN assignment folder](02_CIFAR10_KNN/).
+## 2. CIFAR-10 KNN Classification
 
-## Reproducing the experiments
+**[View Notebook](02_CIFAR10_KNN/CIFAR10_KNN.ipynb)**
 
-- Open the notebooks in **Google Colab** or Jupyter.
-- Morphology: the self-contained demonstration notebook generates its own image; `original_morphology.py` uses Colab's image-upload dialog and requires your own input image.
-- KNN: Colab automatically downloads CIFAR-10 to `/content/data`. For the original experiment, GPU acceleration was used if available. Re-running full-data KNN cross-validation can take substantial time.
-- The CIFAR-10 dataset itself is **not stored in this repository**.
+Implementation and evaluation of the K-Nearest Neighbors (KNN) algorithm using the CIFAR-10 dataset.
 
-See [`requirements.txt`](requirements.txt) for the Python libraries.
+The experiment includes:
+
+- Different K values: 1, 3, 5, 7, 9
+- Manhattan (L1) and Euclidean (L2) distances
+- 5-fold Cross-Validation
+- Accuracy, Precision, Recall, and F1-score
+- Performance comparison and confusion matrix
+
+### Final Test Results
+
+| Metric | Result |
+|---|---|
+| Best K | 1 |
+| Best Distance Metric | L1 (Manhattan) |
+| Accuracy | 38.59% |
+| Precision (Macro) | 43.33% |
+| Recall (Macro) | 38.59% |
+| F1-score (Macro) | 38.62% |
+
+The KNN experiment used all 50,000 training images and 10,000 test images from CIFAR-10.
+
+## Execution Environment
+
+Both assignments were implemented using Google Colab.
+
+The morphological processing notebook requires an uploaded input image. The KNN notebook automatically downloads CIFAR-10 to the Colab runtime.
+
+Source code and execution outputs can be viewed directly by opening each notebook on GitHub.
